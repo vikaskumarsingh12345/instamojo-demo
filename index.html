@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+
+
+
+
+    <script src="https://js.instamojo.com/v1/checkout.js"></script>
+    <script>
+      /* Start client-defined Callback Handler Functions */
+      function onOpenHandler () {
+        alert('Payments Modal is Opened');
+      }
+
+      function onCloseHandler () {
+        alert('Payments Modal is Closed');
+      }
+
+      function onPaymentSuccessHandler (response) {
+        alert('Payment Success');
+        console.log('Payment Success Response', response);
+      }
+
+      function onPaymentFailureHandler (response) {
+        alert('Payment Failure');
+        console.log('Payment Failure Response', response);
+      }
+      /* End client-defined Callback Handler Functions */
+
+      /* Configuring Handlers */
+      Instamojo.configure({
+        handlers: {
+          onOpen: onOpenHandler,
+          onClose: onCloseHandler,
+          onSuccess: onPaymentSuccessHandler,
+          onFailure: onPaymentFailureHandler
+        }
+      });
+      
+      function onButtonClick() {
+        Instamojo.open('https://test.instamojo.com/@vikasvsingh2001/');
+      }
+    </script>
+
+
+
+</head>
+<body>
+    <!-- https://vikaskumarsingh12345.github.io/payment-gateway-demo/ -->
+
+    <!-- https://test.instamojo.com/payments/instapay/ -->
+
+
+    <h1>Payment Gateway</h1>
+    <video src="https://player.vimeo.com/external/338176483.sd.mp4?s=d5207d9337d621936583841a492fa15e67369da6&profile_id=164&oauth2_token_id=57447761"  autoplay loop>
+        Event Video
+    </video><br>
+    <img src="https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?auto=compress&cs=tinysrgb&w=600" style height="191px" width="191px">
+    <h5>Event Ticket Price is ₹ 11</h5>
+    <button onclick="onButtonClick()" class="paybtn">Pay Now</button>
+    <script src="instamojo.html"></script>
+</body>
+</html>
